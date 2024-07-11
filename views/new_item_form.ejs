@@ -1,0 +1,101 @@
+<% include partials/header.ejs %>
+<script>
+    
+   function validateNewItem(){
+      var x = document.forms["newItem"]["item_name"].value;
+      var y = document.forms["newItem"]["item_model"].value;
+      var z = document.forms["newItem"]["item_category"].value;
+      var a = document.forms["newItem"]["item_price_per_piece"].value;
+      var b = document.forms["newItem"]["item_quantity"].value;
+      var c = document.forms["newItem"]["item_price"].value;
+      var d = document.forms["newItem"]["item_description"].value;
+      
+
+     // console.log(x);
+
+      if (x == ""){
+          alert("Item Name can't be blank");
+          return false;
+      }
+
+      if (y == ""){
+          alert("Item Model Number cannot be blank");
+          return false;
+      }
+
+
+      if (z == ""){
+          alert("Item Category can't be blank");
+          return false;
+      }
+
+
+      if (a == ""){
+          alert("Price Per Piece can't be blank");
+          return false;
+      }
+
+
+      if (b == ""){
+          alert("Quantity can't be blank");
+          return false;
+      }
+
+
+      if (c == ""){
+          alert("Net Price can't be blank");
+          return false;
+      }
+
+
+      if (d == ""){
+          alert("Text Area can't be blank");
+          return false;
+      }
+  }
+
+</script>
+
+<form name="newItem" action="/new_item_form" method="POST" onsubmit="return validateNewItem()">
+
+	<h1>NEW ITEM</h1>
+
+	<div id="div2">
+		<input id="input" type="text" name="item_user" value="<%= Username %>" readonly>
+	</div>
+
+	<div id="div2">
+		<input id="input" type="text" name="item_name" placeholder="Item Name">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="text" name="item_model" placeholder="Item Model Number">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="text" name="item_category" placeholder="Item Category">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="number" name="item_price_per_piece" placeholder="Price Per Piece">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="number" name="item_quantity" placeholder="Quantity">
+	</div>
+		
+	<div id="div2">
+		<input id="input" type="number" name="item_price" placeholder="Total Price">
+	</div>
+
+	<div id="div2">
+		<textarea placeholder="Description" name="item_description"></textarea>
+	</div>	
+
+	<div id="div2">
+		<input id="input" type="submit">
+	</div>
+
+</form>
+
+<% include partials/footer.ejs %>
